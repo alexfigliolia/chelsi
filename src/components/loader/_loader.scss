@@ -10,7 +10,7 @@
 	z-index: 12341234;
 	transform: rotateY(-180deg);
 	backface-visibility: hidden;
-	transition-duration: 0.5s;
+	transition-duration: 0.75s;
 	@include headerShadow;
 	&>div {
 		@include center;
@@ -88,6 +88,7 @@
 
 .loader-rotate {
 	transform: rotateY(0deg) translateZ(10px);
+  transition-duration: 0.5s;
 	& .load {
 		@include center;
 	}

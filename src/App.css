@@ -373,13 +373,15 @@ th {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   position: relative; }
 
-.App-scale {
-  transform: scale(0.9);
+.trim-height {
   max-height: 85vh;
   overflow: hidden; }
   @media (min-width: 670px) {
-    .App-scale {
+    .trim-height {
       max-height: 100vh; } }
+
+.App-scale {
+  transform: scale(0.9); }
 
 .App-rotate {
   transform: scale(0.9) rotateY(180deg);
@@ -387,11 +389,13 @@ th {
 
 .home {
   position: relative;
-  background: transparent; }
+  background: transparent;
+  backface-visibility: hidden; }
 
 .about {
   min-height: 100vh;
-  width: 100%; }
+  width: 100%;
+  backface-visibility: hidden; }
   .about > div {
     display: flex;
     justify-content: center;
@@ -712,6 +716,8 @@ th {
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.5); }
+  .banner > .center {
+    padding: 100px 0; }
   .banner > div {
     margin-top: -15%;
     display: flex;
@@ -720,7 +726,8 @@ th {
     z-index: 2;
     flex-direction: column;
     width: 90%;
-    max-width: 300px; }
+    max-width: 300px;
+    transition-duration: 1s; }
     @media (min-width: 670px) {
       .banner > div {
         max-width: 500px;
@@ -885,10 +892,30 @@ th {
   width: 100%;
   color: #fff;
   transform: scale(1);
-  transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s; }
+  transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s, opacity 0.5s 1.5s; }
   .banner-enter > div > .serves > h3 {
     transform: translateY(0px);
     transition: transform 0.3s 2.25s; }
+
+.banner-fade > div > .lines {
+  transform: scaleX(0);
+  transition-delay: 0s; }
+
+.banner-fade > div > .lettering::after {
+  transform: scaleX(0);
+  transition-delay: 0s; }
+
+.banner-fade > div > .lettering > h2 > div,
+.banner-fade > div > .lettering > h2:last-of-type > div {
+  opacity: 0;
+  transform: translateY(-75px);
+  transition-duration: 0.5s; }
+
+.banner-fade > div > .serves {
+  transform: translateY(-100px);
+  opacity: 0;
+  transition-delay: 0s;
+  transition-duration: 0.5s; }
 
 .info {
   z-index: 10;
@@ -1041,7 +1068,7 @@ th {
   z-index: 12341234;
   transform: rotateY(-180deg);
   backface-visibility: hidden;
-  transition-duration: 0.5s;
+  transition-duration: 0.75s;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
   .loader > div {
     display: flex;
@@ -1102,7 +1129,8 @@ th {
     stroke: #fff; } }
 
 .loader-rotate {
-  transform: rotateY(0deg) translateZ(10px); }
+  transform: rotateY(0deg) translateZ(10px);
+  transition-duration: 0.5s; }
   .loader-rotate .load {
     display: flex;
     justify-content: center;

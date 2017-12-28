@@ -30,7 +30,7 @@ export default class Banner extends PureComponent {
         style={{
           backgroundPosition: `${this.state.moveX}% 100%`,
         }}>
-    		<div>
+    		<div className='center' id='heading'>
           <div className='lines'></div>
     			<div className="lettering">
             <h2>

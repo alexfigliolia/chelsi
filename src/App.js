@@ -56,25 +56,29 @@ export default class App extends PureComponent {
     const int = e.target.parentNode.parentNode.classList.contains('menu') ? 800 : 0;
     if(int > 0) this.toggleMenu();
     setTimeout(() => {
-      this.setState({ appClasses: 'App App-scale' }, () => {
+      this.setState({ appClasses: 'App trim-height App-scale' }, () => {
         document.body.classList.add('perspective');
       });
     }, int)
     setTimeout(() => { 
       this.setState({ 
-        appClasses: 'App App-scale App-rotate', 
+        appClasses: 'App trim-height App-scale App-rotate', 
         loaderClasses: 'loader loader-rotate' 
       }); 
     }, int + 500);
     setTimeout(() => { this.setState({ page: next }) }, int + 1000);
     setTimeout(() => {
       this.setState({
-        appClasses: 'App App-scale', 
+        appClasses: 'App trim-height App-scale', 
         loaderClasses: 'loader'
       });
     }, int + 2000);
-    setTimeout(() => { this.setState({appClasses: 'App'}) }, int + 2900);
-    setTimeout(() => { document.body.classList.remove('perspective') }, int + 3300);
+    setTimeout(() => { this.setState({appClasses: 'App trim-height'}) }, int + 2900);
+    setTimeout(() => { 
+      this.setState({ appClasses: 'App'}, () => {
+        document.body.classList.remove('perspective');
+      }); 
+    }, int + 3300);
   }
 
   render = () => {

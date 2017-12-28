@@ -14,6 +14,9 @@
   	width: 100%;
   	background: rgba(#000, 0.5);
   }
+  &>.center {
+    padding: 100px 0;
+  }
   &>div {
     margin-top: -15%;
   	@include center;
@@ -21,6 +24,7 @@
   	flex-direction: column;
   	width: 90%;
   	max-width: 300px;
+    transition-duration: 1s;
   	@media #{$mq-670} {
   		max-width: 500px;
       margin-top: 0;
@@ -177,10 +181,35 @@
 		width: 100%;
 		color: #fff;
 		transform: scale(1);
-		transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s;
+		transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s, opacity 0.5s 1.5s;
 		&>h3 {
 			transform: translateY(0px);
 			transition: transform 0.3s 2.25s;
 		}
 	}
+}
+
+.banner-fade {
+  &>div {
+    &>.lines {
+      transform: scaleX(0);
+      transition-delay: 0s;
+    }
+    &>.lettering::after {
+      transform: scaleX(0);
+      transition-delay: 0s;
+    }
+    &>.lettering > h2 > div,
+    &>.lettering > h2:last-of-type >div {
+      opacity: 0;
+      transform: translateY(-75px);
+      transition-duration: 0.5s;
+    }
+    &>.serves {
+      transform: translateY(-100px);
+      opacity: 0;
+      transition-delay: 0s;
+      transition-duration: 0.5s;
+    }
+  }
 }

@@ -13,17 +13,19 @@
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   transition-duration: 0.75s;
   @include headerShadow;
-  // backface-visibility: hidden;
   position: relative;
 }
 
-.App-scale {
-	transform: scale(0.9);
+.trim-height {
 	max-height: 85vh;
 	overflow: hidden;
 	@media #{$mq-670} {
 		max-height: 100vh;
 	}
+}
+
+.App-scale {
+	transform: scale(0.9);
 }
 
 .App-rotate {
@@ -34,11 +36,13 @@
 .home {
 	position: relative;
 	background: transparent;
+	backface-visibility: hidden;
 }
 
 .about {
 	min-height: 100vh;
 	width: 100%;
+	backface-visibility: hidden;
 	&>div {
 		@include center;
 		width: 100%;

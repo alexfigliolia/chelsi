@@ -20,11 +20,15 @@ export default class Home extends PureComponent {
     }, 1000);
 
     this.ctrl = new ScrollMagic.Controller();
-    const ph1 = new ScrollMagic.Scene({triggerElement: "#lc", triggerHook: 0.75})
+    new ScrollMagic.Scene({triggerElement: '#heading', triggerHook: 0})
+    .on('enter', () => { this.setState({ bannerClasses: 'banner banner-enter banner-fade' }) })
+    .on('leave', () => { this.setState({ bannerClasses: 'banner banner-enter' }) })
+    .addTo(this.ctrl);
+    new ScrollMagic.Scene({triggerElement: "#lc", triggerHook: 0.75})
     .on("enter", () => { this.setState({lcClasses: 'lc lc-show'}) })
     .on("leave", () => { this.setState({lcClasses: 'lc'}) })
     .addTo(this.ctrl);
-    const ph2 = new ScrollMagic.Scene({triggerElement: "#en", triggerHook: 0.75})
+    new ScrollMagic.Scene({triggerElement: "#en", triggerHook: 0.75})
     .on("enter", () => { this.setState({enClasses: 'lc en en-show'}) })
     .on("leave", () => { this.setState({enClasses: 'lc en'}) })
     .addTo(this.ctrl);
