@@ -1,0 +1,26 @@
+.footer {
+	@include center;
+	height: 200px;
+	width: 100%;
+	@include backgroundTop;
+	// background: url('img/ep_naturalblack.png') repeat center;
+	// background-size: contain;
+	background: #EBEDF2;
+	&>div {
+		@include center;
+		flex-direction: column;
+		&>h2 {
+			font-family: 'Yesteryear';
+			color: #fff;
+			font-size: 2em;
+			margin: 10px;
+			@include backgroundTop;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			&:first-of-type {
+				font-family: 'Abril Fatface', sans-serif;
+				font-size: 1.75em;
+			}
+		}
+	}
+}

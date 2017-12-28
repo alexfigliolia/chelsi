@@ -1,0 +1,186 @@
+.banner {
+  height: 100vh;
+  width: 100%;
+  background: url('./img/bg.jpg') no-repeat right;
+  background-size: cover;
+  position: relative;
+  @include center;
+  &::after {
+  	content: '';
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	height: 100%;
+  	width: 100%;
+  	background: rgba(#000, 0.5);
+  }
+  &>div {
+    margin-top: -15%;
+  	@include center;
+  	z-index: 2;
+  	flex-direction: column;
+  	width: 90%;
+  	max-width: 300px;
+  	@media #{$mq-670} {
+  		max-width: 500px;
+      margin-top: 0;
+  	}
+  	&>.lettering {
+  		@include center;
+  		flex-direction: row;
+  		width: 100%;
+  		position: relative;
+  		&::after {
+  			content: "";
+  			position: absolute;
+  			top: calc(50% - 10px);
+  			left: 0;
+  			width: 100%;
+  			height: 20px;
+  			@include backgroundRight;
+  			transform: scaleY(0);
+	  		transition-duration: 0.5s;
+  			transition-delay: 1.5s;
+  			@media #{$mq-670} {
+		  		height: 40px;
+		  	}
+  		}
+  		&>h2 {
+  			z-index: 2;
+	  		width: 100%;
+	  		margin: 0;
+	  		// margin: -10px 0;
+	  		color: #fff;
+	  		font-size: 3.5em;
+	  		font-weight: 200;
+	  		// transform: translateX(-50px);
+	  		text-align: left;
+	  		@include center;
+	  		justify-content: flex-start;
+	  		@media #{$mq-670} {
+		  		font-size: 6em;
+		  		font-weight: 100;
+		  	}
+	  		&>div {
+	  			transform: translateX(150px);
+	  			opacity: 0;
+	  			transition-duration: 1s;
+	  		}
+	  		&:last-of-type {
+	  			font-family: 'Yesteryear', sans-serif;
+	  			text-align: right;
+	  			margin-top: 10px;
+	  			justify-content: flex-end;
+	  			&>div {
+	  				color: #fff;
+		  			transition-duration: 1s;
+		  			transform: translateX(-150px);
+	  				opacity: 0;
+		  		}
+	  		}
+	  	}
+  	}
+  	&>.lines {
+  		height: 4px;
+  		width: 100%;
+  		@include headerShadow;
+  		border-radius: 5px;
+  		@include backgroundTop;
+  		color: #fff;
+  		transform: scaleX(0);
+  		transform-origin: 100% 50%;
+  		transition-duration: 1s;
+  		transition-delay: 0s;
+  		// transition-delay: 2s;
+  	}
+  	&>.serves {
+  		height: 60px;
+  		width: 60px;
+  		// width: 100%;
+  		@include headerShadow;
+  		border-radius: 30px;
+  		@include backgroundTop;
+  		color: transparent;
+  		margin-top: 30px;
+  		font-size: 1.25em;
+  		font-weight: 400;
+  		@include center;
+  		transition-duration: 0.3s;
+  		transform: scale(0);
+  		overflow: hidden;
+  		&>h3 {
+  			font-weight: 300;
+  			transform: translateY(60px);
+  		}
+  	}
+  }
+  &>.scroll {
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	height: 100px;
+  	width: 100%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	&::after {
+  		content: "";
+  		position: absolute;
+  		top: 0;
+  		left: 0;
+  		height: 100%;
+  		width: 100%;
+  		@include backgroundRight;
+  		transform: scaleY(0);
+  		transform-origin: 50% 100%;
+  		transition-duration: 0.75s;
+  	}
+  	&::before {
+  		content: "Discover";
+  		position: absolute;
+  		top: 0;
+  		left: 0;
+  		z-index: 2;
+  		height: 100%;
+  		width: 100%;
+  		color: #fff;
+  		@include center;
+  		font-size: 2em;
+  		transform: translateY(100%);
+  		transition-duration: 0.25s;
+  		transition-delay: 0s;
+  	}
+  }
+}
+
+.scroll:hover::after {
+	transform: scaleY(1);
+	transition-duration: 0.3s;
+}
+.scroll:hover::before {
+	transform: translateY(0%);
+	transition-duration: 0.75s;
+}
+
+.banner-enter {
+	&>div>.lettering::after {
+		transform: scaleY(1);
+	}
+	&>div>.lettering>h2>div,
+	&>div>.lettering>h2:last-of-type>div {
+		transform: translateX(0px);
+  		opacity: 1;
+	}
+	&>div>.lines {
+		transform: scaleX(1);
+	}
+	&>div>.serves {
+		width: 100%;
+		color: #fff;
+		transform: scale(1);
+		transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s;
+		&>h3 {
+			transform: translateY(0px);
+			transition: transform 0.3s 2.25s;
+		}
+	}
+}

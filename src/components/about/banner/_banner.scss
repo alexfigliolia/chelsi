@@ -1,0 +1,42 @@
+.abt-banner {
+	height: 30vh;
+	width: 100%;
+	@include center;
+	position: relative;
+	&>div {
+		align-self: flex-end;
+		@include center;
+		width: 90%;
+		justify-content: flex-end;
+		flex-direction: column;
+		&>h2 {
+			font-size: 6.75vh;
+			font-family: 'Abril Fatface';
+			@include center;
+			margin: 0;
+			&>div {
+				margin: -0.5px;
+				transition-duration: 0.5s;
+				@include backgroundRight;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				&:nth-of-type(odd) {
+					transform: translateY(-100%);
+					opacity: 0;
+				}
+				&:nth-of-type(even) {
+					transform: translateY(100%);
+					opacity: 0;
+				}
+			}
+		}
+	}	
+}
+
+.abt-banner-enter {
+	&>div>h2>div:nth-of-type(odd),
+	&>div>h2>div:nth-of-type(even) {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}

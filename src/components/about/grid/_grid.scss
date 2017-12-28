@@ -1,0 +1,86 @@
+.grid {
+	@include center;
+	width: 100%;
+	margin-top: 40px;
+	flex-direction: column;
+	&>div {
+		width: 100%;
+		@include center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@media #{$mq-957} {
+			width: 90%;
+			max-width: 1000px;
+		}
+		&>div {
+			width: 50%;
+			@include center;
+			flex-direction: column;
+			box-sizing: border-box;
+			transform: translateX(-100px);
+			opacity: 0;
+			transition-duration: 0.5s;
+			overflow: hidden;
+			&:nth-of-type(even) {
+				transform: translateX(100px);
+				opacity: 0;
+			}
+			@media #{$mq-957} {
+				margin: 20px;
+				width: calc(50% - 40px);
+				@include headerShadow;
+				border-radius: 5px;
+			}
+			&>.g-img {
+				height: 150px;
+				overflow: hidden;
+				width: 100%;
+				background: url('img/life.jpg') no-repeat center;
+				background-size: cover;
+				@media #{$mq-670} {
+					height: 250px;
+				}
+				@media #{$mq-957} {
+					border-top-right-radius: 5px;
+					border-top-left-radius: 5px;
+				}
+			}
+			&>.g-text {
+				width: 100%;
+				position: relative;
+				&>h3 {
+					font-weight: 200;
+					@include backgroundRight;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+		}
+		&>div:nth-of-type(2)>.g-img {
+			background: url('img/nutrition.jpg') no-repeat center;
+			background-size: cover;
+		}
+		&>div:nth-of-type(3)>.g-img {
+			background: url('img/spirit.jpg') no-repeat center;
+			background-size: cover;
+		}
+	}
+	&>button {
+		outline: none; border: none;
+		height: 60px; width: 270px;
+		margin: 40px 0 60px 0; border-radius: 5px;
+		@include backgroundRight;
+		color: #fff;
+		@include headerShadow;
+	}
+}
+
+
+.grid-enter>div>div {
+	transform: translateX(0px);
+	opacity: 1;
+	&:nth-of-type(even) {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}

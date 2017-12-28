@@ -1,0 +1,58 @@
+@import 'components/variables';
+@import 'components/reset';
+
+.perspective {
+	perspective: 1000;
+	@media #{$mq-670} {
+		perspective: 2000;
+	}
+}
+
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  transition-duration: 0.75s;
+  @include headerShadow;
+  // backface-visibility: hidden;
+  position: relative;
+}
+
+.App-scale {
+	transform: scale(0.9);
+	max-height: 85vh;
+	overflow: hidden;
+	@media #{$mq-670} {
+		max-height: 100vh;
+	}
+}
+
+.App-rotate {
+	transform: scale(0.9) rotateY(180deg);
+	transition-duration: 0.75s;
+}
+
+.home {
+	position: relative;
+	background: transparent;
+}
+
+.about {
+	min-height: 100vh;
+	width: 100%;
+	&>div {
+		@include center;
+		width: 100%;
+		flex-direction: column;
+	}
+}
+
+@import 'components/header/header';
+@import 'components/header/burger/burger';
+@import 'components/menu/menu';
+@import 'components/home/banner/banner';
+@import 'components/home/info/info';
+@import 'components/footer/footer';
+@import 'components/loader/loader';
+@import 'components/about/banner/banner';
+@import 'components/about/grid/grid';
+

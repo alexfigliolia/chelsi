@@ -1,0 +1,104 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include center;
+	height: 50px;
+	width: 100%;
+	z-index: 100001;
+	transition-duration: 0.3s;
+	@media #{$mq-670} {
+  		height: 80px;
+  	}
+  	@media #{$mq-957} {
+  		background: transparent;
+  		box-shadow: none;
+  	}
+	&>div {
+		@include center;
+		flex-direction: row;
+		justify-content: space-between;
+		width: calc(100% - 20px);
+		@media #{$mq-670} {
+	  		width: calc(100% - 40px);
+	  	}
+		&>h1 {
+			font-size: 2em;
+			color: #fff;
+			font-family: 'Yesteryear', cursive;
+			transition-duration: 0.3s;
+			cursor: pointer;
+			@media #{$mq-670} {
+		  		font-size: 3em;
+		  	}
+		}
+		&>svg {
+			stroke: #F65DE8;
+			fill: #F65DE8;
+			font-family: "Yesteryear", cursive;
+			&>text {
+				stroke-dasharray: 1020;
+  				stroke-dashoffset: 0;
+  				transition-duration: 1s;
+			}
+		}
+		&>nav {
+			display: none;
+			@media #{$mq-670} {
+				@include center;
+				&>a {
+					color: #fff;
+					font-size: 1.4em;
+					margin-left: 40px;
+					font-weight: 200;
+					font-family: 'Abril Fatface';
+					@include backgroundTop;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					cursor: pointer;
+					position: relative;
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						@include backgroundRight;
+						height: 2px;
+						transform: scaleX(0);
+						transition-duration: 0.3s;
+					}
+					&:hover::after {
+						transform: scaleX(1);
+					}
+					@media #{$mq-957} {
+				  		background: transparent;
+						-webkit-background-clip: initial;
+						-webkit-text-fill-color: initial;
+						color: #fff;
+				  	}
+				}
+				&>.active {
+					&::after {
+						transform: scaleX(1);
+					}
+				}
+			}
+		}
+	}	
+}
+
+.header-color {
+	@include headerShadow;
+	background: #fff;
+	&>div>h1 {
+		@include backgroundTop;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	&>div>nav>a {
+		@include backgroundTop;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
