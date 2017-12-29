@@ -7,6 +7,8 @@
 	width: 100%;
 	z-index: 100001;
 	transition-duration: 0.3s;
+	@include backgroundRight;
+	@include headerShadow;
 	@media #{$mq-670} {
   		height: 80px;
   	}
@@ -52,11 +54,13 @@
 					margin-left: 40px;
 					font-weight: 200;
 					font-family: 'Abril Fatface';
-					@include backgroundTop;
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
 					cursor: pointer;
 					position: relative;
+					@media #{$mq-957} {
+						@include backgroundTop;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
 					&::after {
 						content: '';
 						position: absolute;
@@ -89,16 +93,18 @@
 }
 
 .header-color {
-	@include headerShadow;
-	background: #fff;
-	&>div>h1 {
-		@include backgroundTop;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	&>div>nav>a {
-		@include backgroundTop;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+	@media #{$mq-957} {
+		@include headerShadow;
+		background: #fff;
+		&>div>h1 {
+			@include backgroundTop;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		&>div>nav>a {
+			@include backgroundTop;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 	}
 }

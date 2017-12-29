@@ -6,6 +6,7 @@ import Home from './components/home/Home';
 import About from './components/about/About';
 import Footer from './components/footer/Footer';
 import Loader from './components/loader/Loader';
+import Contact from './components/contact/Contact';
 import './App.css';
 
 export default class App extends PureComponent {
@@ -27,7 +28,7 @@ export default class App extends PureComponent {
 
   componentDidMount = () => {
     this.ctrl = new ScrollMagic.Controller();
-    const header = new ScrollMagic.Scene({triggerElement: '#info', triggerHook: 0, offset: -80})
+    new ScrollMagic.Scene({triggerElement: '#info', triggerHook: 0, offset: -80})
     .on('enter', () => { this.setState({ headerClasses: 'header header-color' }) })
     .on('leave', () => { this.setState({ headerClasses: 'header' }) })
     .addTo(this.ctrl);
@@ -100,6 +101,11 @@ export default class App extends PureComponent {
         {
           this.state.page === 'about' && 
           <About />
+        }
+
+        {
+          this.state.page === 'contact' &&
+          <Contact />
         }
 
         <Footer />

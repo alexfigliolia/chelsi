@@ -112,6 +112,7 @@
   		transition-duration: 0.3s;
   		transform: scale(0);
   		overflow: hidden;
+      display: none;
   		&>h3 {
   			font-weight: 300;
   			transform: translateY(60px);

@@ -108,9 +108,13 @@
 
 .header-color #top,
 .header-color #bottom1 {
-  @include backgroundRight;
+  @media #{$mq-957} {
+    @include backgroundRight;
+  }
 }
 
 .header-color #circle {
-  stroke: url('#linear');
+  @media #{$mq-957} {
+    stroke: url('#linear');
+  }
 }
