@@ -16,19 +16,19 @@
   }
   &>.center {
     padding: 100px 0;
+    position: relative;
+    margin-top: -15%;
+    @media #{$mq-670} {
+      max-width: 650px;
+      margin-top: 0;
+    }
   }
   &>div {
-    margin-top: -15%;
   	@include center;
   	z-index: 2;
   	flex-direction: column;
   	width: 90%;
   	max-width: 300px;
-    transition-duration: 1s;
-  	@media #{$mq-670} {
-  		max-width: 500px;
-      margin-top: 0;
-  	}
   	&>.lettering {
   		@include center;
   		flex-direction: row;
@@ -37,17 +37,18 @@
   		&::after {
   			content: "";
   			position: absolute;
-  			top: calc(50% - 10px);
-  			left: 0;
-  			width: 100%;
-  			height: 20px;
+  			top: 0;
+  			right: 0;
+  			width: 42.5%;
+  			height: 100%;
   			@include backgroundRight;
-  			transform: scaleY(0);
+  			transform: scaleX(0);
+        transform-origin: 100% 50%;
 	  		transition-duration: 0.5s;
-  			transition-delay: 1.5s;
-  			@media #{$mq-670} {
-		  		height: 40px;
-		  	}
+  			transition-delay: 1.25s;
+  			// @media #{$mq-670} {
+		  	// 	height: 40px;
+		  	// }
   		}
   		&>h2 {
   			z-index: 2;
@@ -62,7 +63,7 @@
 	  		@include center;
 	  		justify-content: flex-start;
 	  		@media #{$mq-670} {
-		  		font-size: 6em;
+		  		font-size: 8em;
 		  		font-weight: 100;
 		  	}
 	  		&>div {
@@ -89,7 +90,7 @@
   		width: 100%;
   		@include headerShadow;
   		border-radius: 5px;
-  		@include backgroundTop;
+  		@include backgroundRight;
   		color: #fff;
   		transform: scaleX(0);
   		transform-origin: 100% 50%;
@@ -119,41 +120,64 @@
   		}
   	}
   }
+  // &>.scroll {
+  // 	position: absolute;
+  // 	bottom: 0;
+  // 	left: 0;
+  // 	height: 100px;
+  // 	width: 100%;
+  // 	max-width: 100%;
+  // 	overflow: hidden;
+  //   transition-duration: 1s;
+  // 	&::after {
+  // 		content: "";
+  // 		position: absolute;
+  // 		top: 0;
+  // 		left: 0;
+  // 		height: 100%;
+  // 		width: 100%;
+  // 		@include backgroundRight;
+  // 		transform: scaleY(0);
+  // 		transform-origin: 50% 100%;
+  // 		transition-duration: 0.75s;
+  // 	}
+  // 	&::before {
+  // 		content: "Discover";
+  // 		position: absolute;
+  // 		top: 0;
+  // 		left: 0;
+  // 		z-index: 2;
+  // 		height: 100%;
+  // 		width: 100%;
+  // 		color: #fff;
+  // 		@include center;
+  // 		font-size: 2em;
+  // 		transform: translateY(100%);
+  // 		transition-duration: 0.25s;
+  // 		transition-delay: 0s;
+  // 	}
+  // }
   &>.scroll {
-  	position: absolute;
-  	bottom: 0;
-  	left: 0;
-  	height: 100px;
-  	width: 100%;
-  	max-width: 100%;
-  	overflow: hidden;
-  	&::after {
-  		content: "";
-  		position: absolute;
-  		top: 0;
-  		left: 0;
-  		height: 100%;
-  		width: 100%;
-  		@include backgroundRight;
-  		transform: scaleY(0);
-  		transform-origin: 50% 100%;
-  		transition-duration: 0.75s;
-  	}
-  	&::before {
-  		content: "Discover";
-  		position: absolute;
-  		top: 0;
-  		left: 0;
-  		z-index: 2;
-  		height: 100%;
-  		width: 100%;
-  		color: #fff;
-  		@include center;
-  		font-size: 2em;
-  		transform: translateY(100%);
-  		transition-duration: 0.25s;
-  		transition-delay: 0s;
-  	}
+    position: absolute;
+    bottom: 25vh;
+    left: calc(50% - 35px);
+    width: 50px; height: 50px;
+    background: url('img/mouse.svg') no-repeat center;
+    background-size:contain;
+    opacity: 0;
+    animation: scale 1s 0.5s alternate infinite;
+    @media #{$mq-957} {
+      bottom: 10vh;
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(30px);
   }
 }
 
@@ -168,7 +192,7 @@
 
 .banner-enter {
 	&>div>.lettering::after {
-		transform: scaleY(1);
+		transform: scaleX(1);
 	}
 	&>div>.lettering>h2>div,
 	&>div>.lettering>h2:last-of-type>div {
@@ -178,15 +202,10 @@
 	&>div>.lines {
 		transform: scaleX(1);
 	}
-	&>div>.serves {
-		width: 100%;
-		color: #fff;
-		transform: scale(1);
-		transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s, opacity 0.5s 1.5s;
-		&>h3 {
-			transform: translateY(0px);
-			transition: transform 0.3s 2.25s;
-		}
+	&>.scroll {
+    transition-delay: 1.75s;
+    transition-duration: 0.5s;
+		opacity: 1;
 	}
 }
 

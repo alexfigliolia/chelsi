@@ -730,21 +730,21 @@ th {
     width: 100%;
     background: rgba(0, 0, 0, 0.5); }
   .banner > .center {
-    padding: 100px 0; }
+    padding: 100px 0;
+    position: relative;
+    margin-top: -15%; }
+    @media (min-width: 670px) {
+      .banner > .center {
+        max-width: 650px;
+        margin-top: 0; } }
   .banner > div {
-    margin-top: -15%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
     flex-direction: column;
     width: 90%;
-    max-width: 300px;
-    transition-duration: 1s; }
-    @media (min-width: 670px) {
-      .banner > div {
-        max-width: 500px;
-        margin-top: 0; } }
+    max-width: 300px; }
     .banner > div > .lettering {
       display: flex;
       justify-content: center;
@@ -755,22 +755,20 @@ th {
       .banner > div > .lettering::after {
         content: "";
         position: absolute;
-        top: calc(50% - 10px);
-        left: 0;
-        width: 100%;
-        height: 20px;
+        top: 0;
+        right: 0;
+        width: 42.5%;
+        height: 100%;
         background: #DA22FF;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);
         /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #9733EE, #DA22FF);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        transform: scaleY(0);
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
         transition-duration: 0.5s;
-        transition-delay: 1.5s; }
-        @media (min-width: 670px) {
-          .banner > div > .lettering::after {
-            height: 40px; } }
+        transition-delay: 1.25s; }
       .banner > div > .lettering > h2 {
         z-index: 2;
         width: 100%;
@@ -785,7 +783,7 @@ th {
         justify-content: flex-start; }
         @media (min-width: 670px) {
           .banner > div > .lettering > h2 {
-            font-size: 6em;
+            font-size: 8em;
             font-weight: 100; } }
         .banner > div > .lettering > h2 > div {
           transform: translateX(150px);
@@ -808,9 +806,9 @@ th {
       border-radius: 5px;
       background: #DA22FF;
       /* fallback for old browsers */
-      background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
+      background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);
       /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to top, #9733EE, #DA22FF);
+      background: linear-gradient(to right, #9733EE, #DA22FF);
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       color: #fff;
       transform: scaleX(0);
@@ -844,44 +842,23 @@ th {
         transform: translateY(60px); }
   .banner > .scroll {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100px;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden; }
-    .banner > .scroll::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: #DA22FF;
-      /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);
-      /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #9733EE, #DA22FF);
-      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      transform: scaleY(0);
-      transform-origin: 50% 100%;
-      transition-duration: 0.75s; }
-    .banner > .scroll::before {
-      content: "Discover";
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      height: 100%;
-      width: 100%;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2em;
-      transform: translateY(100%);
-      transition-duration: 0.25s;
-      transition-delay: 0s; }
+    bottom: 25vh;
+    left: calc(50% - 35px);
+    width: 50px;
+    height: 50px;
+    background: url("img/mouse.svg") no-repeat center;
+    background-size: contain;
+    opacity: 0;
+    animation: scale 1s 0.5s alternate infinite; }
+    @media (min-width: 957px) {
+      .banner > .scroll {
+        bottom: 10vh; } }
+
+@keyframes scale {
+  0% {
+    transform: translateY(0px); }
+  100% {
+    transform: translateY(30px); } }
 
 .scroll:hover::after {
   transform: scaleY(1);
@@ -892,7 +869,7 @@ th {
   transition-duration: 0.75s; }
 
 .banner-enter > div > .lettering::after {
-  transform: scaleY(1); }
+  transform: scaleX(1); }
 
 .banner-enter > div > .lettering > h2 > div,
 .banner-enter > div > .lettering > h2:last-of-type > div {
@@ -902,14 +879,10 @@ th {
 .banner-enter > div > .lines {
   transform: scaleX(1); }
 
-.banner-enter > div > .serves {
-  width: 100%;
-  color: #fff;
-  transform: scale(1);
-  transition: transform 0.5s 1.5s, width 0.5s 1.7s, color 0.5s 1.7s, opacity 0.5s 1.5s; }
-  .banner-enter > div > .serves > h3 {
-    transform: translateY(0px);
-    transition: transform 0.3s 2.25s; }
+.banner-enter > .scroll {
+  transition-delay: 1.75s;
+  transition-duration: 0.5s;
+  opacity: 1; }
 
 .banner-fade > div > .lines {
   transform: scaleX(0);
