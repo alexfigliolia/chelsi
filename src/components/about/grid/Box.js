@@ -24,6 +24,7 @@ export default class Box extends PureComponent {
     		<div className='g-img'></div>
   			<div className='g-text'>
   				<h3>{this.props.text}</h3>
+          <p>{this.props.desc}</p>
   			</div>
     	</div>    
     );
