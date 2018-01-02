@@ -1,37 +1,23 @@
 import React from 'react';
+import Box from './Box';
+
 
 const Grid = (props) => {
   return (
     <section className={props.classes}>
     	<div>
-    		<div 
-    			style={{ transitionDelay: '1.0s'}}>
-    			<div className='g-img'></div>
-    			<div className='g-text'>
-    				<h3>Life Coaching</h3>
-    			</div>
-    		</div>
-    		<div 
-    			style={{ transitionDelay: '1.1s'}}>
-    			<div className='g-img'></div>
-    			<div className='g-text'>
-    				<h3>Nutrition</h3>
-    			</div>
-    		</div>
-    		<div 
-    			style={{ transitionDelay: '1.2s'}}>
-    			<div className='g-img'></div>
-    			<div className='g-text'>
-    				<h3>Spirituality</h3>
-    			</div>
-    		</div>
-    		<div 
-    			style={{ transitionDelay: '1.3s'}}>
-    			<div className='g-img'></div>
-    			<div className='g-text'>
-    				<h3>Another Thing</h3>
-    			</div>
-    		</div>
+        <Box 
+          delay='1.0s'
+          text='Life Coaching' />
+        <Box 
+          delay='1.1s'
+          text='Nutrition' />
+        <Box 
+          delay='1.2s'
+          text='Spirituality' />
+        <Box 
+          delay='1.3s'
+          text='Another Thing' />
     	</div>
     	<button>Schedule a Consultation</button>
     </section>  

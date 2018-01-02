@@ -5,9 +5,6 @@ export default class Banner extends PureComponent {
     super(props);
     this.state = {
       moveX: null,
-      mouseX: 0,
-      mouseY: 0,
-      tDur: 0
     }
   }
 
@@ -25,35 +22,11 @@ export default class Banner extends PureComponent {
 
   updateMoveX = (e) => this.setState({ moveX: ((e.gamma + 90) * 100) / 180 });
 
-  handleEnter = (e) => {
-    const px = e.type === 'mouseenter' ? e.pageX : e.touches[0].pageX;
-    const py = e.type === 'mouseenter' ? e.pageY: e.touches[0].pageY;
-    const x = (px - (window.innerWidth/2)) / 20;
-    const y = (py - (window.innerHeight/2)) / 20
-    this.setState({mouseX: x, mouseY: y, tDur: 0.3});
-  }
-
-  handleMove = (e) => {
-    const px = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
-    const py = e.type === 'mousemove' ? e.pageY: e.touches[0].pageY;
-    const x = (px - (window.innerWidth/2)) / 20;
-    const y = (py - (window.innerHeight/2)) / 20
-    this.setState({mouseX: x, mouseY: y, tDur: 0});
-  }
-
-  handleLeave = () => this.setState({mouseX: 0, mouseY: 0, tDur: 0.3});
-
   render = () => {
     return (
     	<section 
         className={this.props.classes} 
         id='banner'
-        onMouseEnter={this.handleEnter}
-        onMouseMove={this.handleMove}
-        onMouseLeave={this.handleLeave}
-        onTouchStart={this.handleEnter}
-        onTouchMove={this.handleMove}
-        onTouchEnd={this.handleLeave}
         style={{
           backgroundPosition: `${this.state.moveX}% 100%`,
         }}>

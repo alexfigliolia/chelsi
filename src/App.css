@@ -1174,7 +1174,8 @@ th {
   align-items: center;
   width: 100%;
   margin-top: 40px;
-  flex-direction: column; }
+  flex-direction: column;
+  user-select: none; }
   .grid > div {
     width: 100%;
     display: flex;
@@ -1187,7 +1188,7 @@ th {
         width: 90%;
         max-width: 1000px; } }
     .grid > div > div {
-      width: 50%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1196,10 +1197,14 @@ th {
       transform: translateX(-100px);
       opacity: 0;
       transition-duration: 0.5s;
-      overflow: hidden; }
+      overflow: hidden;
+      position: relative; }
       .grid > div > div:nth-of-type(even) {
         transform: translateX(100px);
         opacity: 0; }
+      @media (min-width: 670px) {
+        .grid > div > div {
+          width: 50%; } }
       @media (min-width: 957px) {
         .grid > div > div {
           margin: 20px;
@@ -1207,7 +1212,7 @@ th {
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
           border-radius: 5px; } }
       .grid > div > div > .g-img {
-        height: 150px;
+        height: 175px;
         overflow: hidden;
         width: 100%;
         background: url("img/life.jpg") no-repeat center;
@@ -1221,8 +1226,19 @@ th {
             border-top-left-radius: 5px; } }
       .grid > div > div > .g-text {
         width: 100%;
-        position: relative; }
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 30%;
+        background: rgba(255, 255, 255, 0.85);
+        transition-duration: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
         .grid > div > div > .g-text > h3 {
+          user-select: none;
+          transition-duration: 0.3s;
+          padding: 0;
           font-weight: 200;
           background: #DA22FF;
           /* fallback for old browsers */
@@ -1238,6 +1254,12 @@ th {
     .grid > div > div:nth-of-type(3) > .g-img {
       background: url("img/spirit.jpg") no-repeat center;
       background-size: cover; }
+    .grid > div > .box-enter > .g-text {
+      height: 100%;
+      background: #fff; }
+      .grid > div > .box-enter > .g-text > h3 {
+        font-size: 1.55em;
+        align-self: flex-start; }
   .grid > button {
     outline: none;
     border: none;
