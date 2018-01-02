@@ -42,6 +42,7 @@
 				width: 100%;
 				background: url('img/life.jpg') no-repeat center;
 				background-size: cover;
+				transition-duration: 1s;
 				@media #{$mq-670} {
 					height: 250px;
 				}
@@ -63,6 +64,7 @@
 				justify-content: flex-start;
 				overflow: hidden;
 				&>h3 {
+					font-size: 1.5em;
 					user-select: none;
 					transition-duration: 0.3s;
 					font-weight: 200;
@@ -70,8 +72,11 @@
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
 					margin-bottom: 20px;
-					margin-top: 15px;
+					margin-top: 7.5px;
 					font-family: "Abril Fatface";
+					@media #{$mq-670} {
+						margin-top: 10px;
+					}
 					&::after {
 						content: '';
 						position: absolute;
@@ -82,10 +87,6 @@
 						transform-origin: 0% 50%;
 						transition-duration: 0.3s;
 					}
-					// @media #{$mq-670} {
-					// 	margin-top: 60px;
-					// 	margin-bottom: 25px;
-					// }
 				}
 				&>p {
 					width: 85%;
@@ -93,16 +94,6 @@
 					color: #7E8080;
 					color: #fff;
 					position: relative;
-					// &::after {
-					// 	content: '';
-					// 	position: absolute;
-					// 	bottom: -20px; left: 25%;
-					// 	height: 1px; width: 50%;
-					// 	@include backgroundRight;
-					// 	transform: scaleX(0);
-					// 	transform-origin: 0% 50%;
-					// 	transition-duration: 0.3s;
-					// }
 				}
 			}
 		}
@@ -115,15 +106,20 @@
 			background-size: cover;
 		}
 		&>.box-enter {
+			&>.g-img {
+				transform: scale(1.2);
+			}
 			&>.g-text {
 				height: 100%;
 				background: #fff;
 				background: rgba(#000, 0.75);
 				&>h3 {
-					font-weight: 900;
-					font-size: 1.55em;
+					font-size: 1.75em;
 					margin-top: 25px;
 					position: relative;
+					@media #{$mq-670} {
+						font-size: 1.9em;
+					}
 					&::after {
 						transform: scaleX(1);
 						transition-delay: 0.25s;
@@ -133,10 +129,6 @@
 						margin-bottom: 25px;
 					}
 				}
-				// &>p::after {
-				// 	transform: scaleX(1);
-				// 	transition-delay: 0.25s;
-				// }
 			}
 		}
 	}

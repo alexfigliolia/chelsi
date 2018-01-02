@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from './Box';
 
-
 const Grid = (props) => {
   return (
     <section className={props.classes}>
@@ -23,7 +22,9 @@ const Grid = (props) => {
           text='Another Thing'
           desc='Four boxes look better than three. Always eat your vegetables' />
     	</div>
-    	<button>Schedule a Consultation</button>
+    	<button 
+        onClick={props.changePage}
+        data-page='contact'>Schedule a Consultation</button>
     </section>  
   );
 }

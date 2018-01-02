@@ -100,7 +100,7 @@ export default class App extends PureComponent {
 
         {
           this.state.page === 'about' && 
-          <About />
+          <About changePage={this.changePage} />
         }
 
         {

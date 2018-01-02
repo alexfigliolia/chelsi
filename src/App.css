@@ -1216,7 +1216,8 @@ th {
         overflow: hidden;
         width: 100%;
         background: url("img/life.jpg") no-repeat center;
-        background-size: cover; }
+        background-size: cover;
+        transition-duration: 1s; }
         @media (min-width: 670px) {
           .grid > div > div > .g-img {
             height: 250px; } }
@@ -1239,6 +1240,7 @@ th {
         justify-content: flex-start;
         overflow: hidden; }
         .grid > div > div > .g-text > h3 {
+          font-size: 1.5em;
           user-select: none;
           transition-duration: 0.3s;
           font-weight: 200;
@@ -1251,8 +1253,11 @@ th {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           margin-bottom: 20px;
-          margin-top: 15px;
+          margin-top: 7.5px;
           font-family: "Abril Fatface"; }
+          @media (min-width: 670px) {
+            .grid > div > div > .g-text > h3 {
+              margin-top: 10px; } }
           .grid > div > div > .g-text > h3::after {
             content: '';
             position: absolute;
@@ -1281,15 +1286,19 @@ th {
     .grid > div > div:nth-of-type(3) > .g-img {
       background: url("img/spirit.jpg") no-repeat center;
       background-size: cover; }
+    .grid > div > .box-enter > .g-img {
+      transform: scale(1.2); }
     .grid > div > .box-enter > .g-text {
       height: 100%;
       background: #fff;
       background: rgba(0, 0, 0, 0.75); }
       .grid > div > .box-enter > .g-text > h3 {
-        font-weight: 900;
-        font-size: 1.55em;
+        font-size: 1.75em;
         margin-top: 25px;
         position: relative; }
+        @media (min-width: 670px) {
+          .grid > div > .box-enter > .g-text > h3 {
+            font-size: 1.9em; } }
         .grid > div > .box-enter > .g-text > h3::after {
           transform: scaleX(1);
           transition-delay: 0.25s; }
@@ -1321,19 +1330,22 @@ th {
     opacity: 1; }
 
 .contact {
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   width: 100%;
   background: #fff;
   padding-top: 80px; }
   @media (min-width: 670px) {
     .contact {
-      padding-top: 110px; } }
+      display: flex;
+      justify-content: center;
+      align-items: center; } }
   @media (min-width: 957px) {
     .contact {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-top: 50px; } }
+      padding-top: 50px;
+      min-height: 100vh; } }
   .contact > div {
     display: flex;
     justify-content: center;

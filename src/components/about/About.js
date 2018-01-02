@@ -31,7 +31,8 @@ export default class About extends Component {
     			<Banner
     				classes={this.state.bannerClasses} />
     			<Grid 
-    				classes={this.state.gridClasses} />
+    				classes={this.state.gridClasses}
+            changePage={this.props.changePage} />
     		</div>
     	</section>    
     );
