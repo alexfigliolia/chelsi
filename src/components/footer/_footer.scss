@@ -3,8 +3,6 @@
 	height: 200px;
 	width: 100%;
 	@include backgroundTop;
-	// background: url('img/ep_naturalblack.png') repeat center;
-	// background-size: contain;
 	background: #EBEDF2;
 	&>div {
 		@include center;

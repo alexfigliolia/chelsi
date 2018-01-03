@@ -48,7 +48,7 @@
 			display: none;
 			@media #{$mq-670} {
 				@include center;
-				&>a {
+				&>div {
 					color: #fff;
 					font-size: 1.4em;
 					margin-left: 40px;
@@ -56,10 +56,27 @@
 					font-family: 'Abril Fatface';
 					cursor: pointer;
 					position: relative;
+					@include center;
+					overflow: hidden;
 					@media #{$mq-957} {
 						@include backgroundTop;
 						-webkit-background-clip: text;
 						-webkit-text-fill-color: transparent;
+					}
+					&>div {
+						pointer-events: none;
+						transition-duration: 0.3s;
+					}
+					&>.underlink {
+						@include center;
+						position: absolute;
+						top: 0; left: 0;
+						pointer-events: none;
+						&>div {
+							opacity: 0;
+							transition-duration: 0.3s;
+							transform: translateY(-25px);
+						}
 					}
 					&::after {
 						content: '';
@@ -74,6 +91,14 @@
 					}
 					&:hover::after {
 						transform: scaleX(1);
+					}
+					&:hover>div {
+						transform: translateY(25px);
+						opacity: 0;
+					}
+					&:hover>.underlink>div {
+						transform: translateY(0px);
+						opacity: 1;
 					}
 					@media #{$mq-957} {
 				  		background: transparent;
@@ -101,7 +126,8 @@
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 		}
-		&>div>nav>a {
+		&>div>nav>div>div,
+		&>div>nav>div>a>div {
 			@include backgroundTop;
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;

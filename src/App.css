@@ -479,16 +479,20 @@ th {
           display: flex;
           justify-content: center;
           align-items: center; }
-          .header > div > nav > a {
+          .header > div > nav > div {
             color: #fff;
             font-size: 1.4em;
             margin-left: 40px;
             font-weight: 200;
             font-family: 'Abril Fatface';
             cursor: pointer;
-            position: relative; } }
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; } }
     @media (min-width: 670px) and (min-width: 957px) {
-      .header > div > nav > a {
+      .header > div > nav > div {
         background: #DA22FF;
         /* fallback for old browsers */
         background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
@@ -498,7 +502,22 @@ th {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent; } }
       @media (min-width: 670px) {
-            .header > div > nav > a::after {
+            .header > div > nav > div > div {
+              pointer-events: none;
+              transition-duration: 0.3s; }
+            .header > div > nav > div > .underlink {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 0;
+              left: 0;
+              pointer-events: none; }
+              .header > div > nav > div > .underlink > div {
+                opacity: 0;
+                transition-duration: 0.3s;
+                transform: translateY(-25px); }
+            .header > div > nav > div::after {
               content: '';
               position: absolute;
               bottom: 0;
@@ -513,10 +532,16 @@ th {
               height: 2px;
               transform: scaleX(0);
               transition-duration: 0.3s; }
-            .header > div > nav > a:hover::after {
-              transform: scaleX(1); } }
+            .header > div > nav > div:hover::after {
+              transform: scaleX(1); }
+            .header > div > nav > div:hover > div {
+              transform: translateY(25px);
+              opacity: 0; }
+            .header > div > nav > div:hover > .underlink > div {
+              transform: translateY(0px);
+              opacity: 1; } }
     @media (min-width: 670px) and (min-width: 957px) {
-      .header > div > nav > a {
+      .header > div > nav > div {
         background: transparent;
         -webkit-background-clip: initial;
         -webkit-text-fill-color: initial;
@@ -538,7 +563,8 @@ th {
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; }
-    .header-color > div > nav > a {
+    .header-color > div > nav > div > div,
+    .header-color > div > nav > div > a > div {
       background: #DA22FF;
       /* fallback for old browsers */
       background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
@@ -686,7 +712,7 @@ th {
     justify-content: space-between;
     height: 60%;
     margin-top: 50px; }
-    .menu > div > a {
+    .menu > div > div {
       cursor: pointer;
       font-size: 8vh;
       font-family: 'Abril Fatface', cursive;
@@ -694,8 +720,12 @@ th {
       color: #fff;
       transform: translateY(-100%);
       opacity: 0;
-      position: relative; }
-      .menu > div > a::after {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; }
+      .menu > div > div::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -710,7 +740,30 @@ th {
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         transform: scaleX(0);
         transition-duration: 0.3s; }
-    .menu > div > .active {
+      .menu > div > div > div {
+        pointer-events: none;
+        transition-duration: 0.3s; }
+      .menu > div > div > .underlink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none; }
+        .menu > div > div > .underlink > div {
+          transform: translateY(-100%);
+          transition-duration: 0.3s;
+          opacity: 0; }
+      .menu > div > div:hover > div {
+        transform: translateY(100%);
+        opacity: 1; }
+      .menu > div > div:hover > .underlink > div {
+        transform: translateY(0%);
+        opacity: 1; }
+    .menu > div > .active::after {
+      transform: scaleX(1); }
+    .menu > div > .active > div {
       background: #DA22FF;
       /* fallback for old browsers */
       background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
@@ -719,13 +772,26 @@ th {
       /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent; }
-      .menu > div > .active::after {
-        transform: scaleX(1); }
+    .menu > div > .active > .underlink > div {
+      background: #DA22FF;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to top, #9733EE, #DA22FF);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; }
+    .menu > div > .anim > div {
+      transform: translateY(100%);
+      opacity: 1; }
+    .menu > div > .anim > .underlink > div {
+      transform: translateY(0%);
+      opacity: 1; }
 
 .menu-show {
   transform: scaleY(1);
   transition-delay: 0s; }
-  .menu-show > div > a {
+  .menu-show > div > div {
     transform: translateY(0%);
     opacity: 1; }
 

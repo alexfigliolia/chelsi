@@ -56,9 +56,7 @@ export default class App extends PureComponent {
     const next = e.target.dataset.page;
     const int = e.target.parentNode.parentNode.classList.contains('menu') ? 800 : 0;
     if(int > 0) this.toggleMenu();
-    setTimeout(() => {
-      this.setState({ appClasses: 'App trim-height App-scale' });
-    }, int)
+    setTimeout(() => { this.setState({ appClasses: 'App trim-height App-scale' }) }, int)
     setTimeout(() => { 
       this.setState({ 
         appClasses: 'App trim-height App-scale App-rotate', 
@@ -73,9 +71,7 @@ export default class App extends PureComponent {
       });
     }, int + 2000);
     setTimeout(() => { this.setState({appClasses: 'App trim-height'}) }, int + 2900);
-    setTimeout(() => { 
-      this.setState({ appClasses: 'App' }); 
-    }, int + 3300);
+    setTimeout(() => { this.setState({ appClasses: 'App' }) }, int + 3300);
   }
 
   render = () => {

@@ -12,18 +12,57 @@ const Header = (props) => {
   				classes={props.burgerClasses}
   				toggleMenu={props.toggleMenu} />
         <nav>
-          <a 
+          <div 
             className={props.page === 'home' ? 'active' : ''}
             data-page='home'
-            onClick={props.changePage}>Home</a>
-          <a 
+            onClick={props.changePage}>
+            {
+              'Home'.split('').map((letter, i) => {
+                return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+              })
+            }
+            <a className='underlink'>
+              {
+                'Home'.split('').map((letter, i) => {
+                  return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+                })
+              }
+            </a>
+          </div>
+          <div 
             className={props.page === 'about' ? 'active' : ''}
             data-page='about'
-            onClick={props.changePage}>About</a>
-          <a 
+            onClick={props.changePage}>
+            {
+              'About'.split('').map((letter, i) => {
+                return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+              })
+            }
+            <a className='underlink'>
+              {
+                'About'.split('').map((letter, i) => {
+                  return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+                })
+              }
+            </a>
+          </div>
+          <div 
             className={props.page === 'contact' ? 'active' : ''}
             data-page='contact'
-            onClick={props.changePage}>Contact</a>
+            onClick={props.changePage}>
+            {
+              'Contact'.split('').map((letter, i) => {
+                return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+              })
+            }
+            <a className='underlink'>
+              {
+                'Contact'.split('').map((letter, i) => {
+                  return <div key={i} style={{transitionDelay: `${i/30}s`}}>{letter}</div>
+                })
+              }
+            </a>
+          </div>
         </nav>
   		</div>
   	</header>    
