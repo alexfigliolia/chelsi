@@ -695,7 +695,6 @@ th {
   left: 0;
   z-index: 1000;
   background: url("img/ep_naturalblack.png") repeat center;
-  background-size: contain;
   transform: scaleY(0);
   transition-duration: 0.2s;
   transform-origin: 50% 0%;
@@ -1089,18 +1088,22 @@ th {
   align-items: center;
   height: 200px;
   width: 100%;
-  background: #DA22FF;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #9733EE, #DA22FF);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: #EBEDF2; }
+  background: url("./img/greyzz.png") repeat center;
+  position: relative; }
+  .footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05); }
   .footer > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; }
+    flex-direction: column;
+    z-index: 2; }
     .footer > div > h2 {
       font-family: 'Yesteryear';
       color: #fff;

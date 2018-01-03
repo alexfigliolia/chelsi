@@ -2,11 +2,19 @@
 	@include center;
 	height: 200px;
 	width: 100%;
-	@include backgroundTop;
-	background: #EBEDF2;
+	background: url('./img/greyzz.png') repeat center;
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0; left: 0;
+		height: 100%; width: 100%;
+		background: rgba(#000, 0.05);
+	}
 	&>div {
 		@include center;
 		flex-direction: column;
+		z-index: 2;
 		&>h2 {
 			font-family: 'Yesteryear';
 			color: #fff;
