@@ -2,16 +2,7 @@
 	height: 100%;
 	width: 100%;
 	@include center;
-	@include headerShadow;
-	position: fixed;
-	top: 0;
-	left: 0;
 	@include backgroundRight;
-	z-index: 12341234;
-	transform: rotateY(180deg);
-	backface-visibility: hidden;
-	transition-duration: 0.75s;
-	@include headerShadow;
 	&>div {
 		@include center;
 	}
@@ -86,10 +77,6 @@
   
 
 
-.loader-rotate {
-	transform: rotateY(0deg) translateZ(10px);
-  transition-duration: 0.5s;
-	& .load {
+.loader-rotate .load {
 		@include center;
-	}
 }

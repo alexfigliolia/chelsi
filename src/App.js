@@ -19,7 +19,7 @@ export default class App extends PureComponent {
       menuClasses: "menu",
       headerClasses: "header",
       loaderClasses: 'loader',
-      page: 'home'
+      page: 'home',
     }
     this.height = window.innerHeight;
     this.width = window.innerWidth;
@@ -57,9 +57,7 @@ export default class App extends PureComponent {
     const int = e.target.parentNode.parentNode.classList.contains('menu') ? 800 : 0;
     if(int > 0) this.toggleMenu();
     setTimeout(() => {
-      this.setState({ appClasses: 'App trim-height App-scale' }, () => {
-        document.body.classList.add('perspective');
-      });
+      this.setState({ appClasses: 'App trim-height App-scale' });
     }, int)
     setTimeout(() => { 
       this.setState({ 
@@ -76,9 +74,7 @@ export default class App extends PureComponent {
     }, int + 2000);
     setTimeout(() => { this.setState({appClasses: 'App trim-height'}) }, int + 2900);
     setTimeout(() => { 
-      this.setState({ appClasses: 'App'}, () => {
-        document.body.classList.remove('perspective');
-      }); 
+      this.setState({ appClasses: 'App' }); 
     }, int + 3300);
   }
 
@@ -86,38 +82,43 @@ export default class App extends PureComponent {
     return (
       <div className={this.state.appClasses} ref='app'>
 
-        <Header
-          classes={this.state.headerClasses}
-          burgerClasses={this.state.burgerClasses} 
-          toggleMenu={this.toggleMenu}
-          page={this.state.page}
-          changePage={this.changePage} />
+        <div className='front'>
+          <Header
+            classes={this.state.headerClasses}
+            burgerClasses={this.state.burgerClasses} 
+            toggleMenu={this.toggleMenu}
+            page={this.state.page}
+            changePage={this.changePage} />
 
-        {
-          this.state.page === 'home' &&
-          <Home />
-        }
+          {
+            this.state.page === 'home' &&
+            <Home />
+          }
 
-        {
-          this.state.page === 'about' && 
-          <About changePage={this.changePage} />
-        }
+          {
+            this.state.page === 'about' && 
+            <About changePage={this.changePage} />
+          }
 
-        {
-          this.state.page === 'contact' &&
-          <Contact />
-        }
+          {
+            this.state.page === 'contact' &&
+            <Contact />
+          }
 
-        <Footer />
-        
-        <Menu 
-          classes={this.state.menuClasses}
-          bool={this.state.burgerToggle}
-          page={this.state.page}
-          changePage={this.changePage} />
+          <Footer />
+          
+          <Menu 
+            classes={this.state.menuClasses}
+            bool={this.state.burgerToggle}
+            page={this.state.page}
+            changePage={this.changePage} />
 
-        <Loader 
-          classes={this.state.loaderClasses} />
+        </div>
+
+        <div className='back'>
+          <Loader 
+            classes={this.state.loaderClasses} />
+        </div>
 
       </div>
     );
