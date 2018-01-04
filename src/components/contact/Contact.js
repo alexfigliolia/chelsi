@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Text from './contactCopy';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -21,9 +22,9 @@ export default class Contact extends Component {
     	<section className='contact'>
     		<div>
     			<div className='text'>
-	    			<p>If you have any questions</p>
-	    			<p>Or would like to discuss your personal goals</p>
-	    			<h2>Get in touch with me</h2>
+	    			<p>{Text.line1}</p>
+	    			<p>{Text.line2}</p>
+	    			<h2>{Text.line3}</h2>
     			</div>
     			<div className='send'>
     				<form

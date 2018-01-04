@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from './Box';
+import Text from '../aboutCopy';
 
 const Grid = (props) => {
   return (
@@ -7,20 +8,20 @@ const Grid = (props) => {
     	<div>
         <Box 
           delay='1.0s'
-          text='Life Coaching'
-          desc='Reach your goals with an expansive evaluation of your strengths and decision making' />
+          text={Text.header1}
+          desc={Text.paragraph1} />
         <Box 
           delay='1.1s'
-          text='Nutrition'
-          desc='Learn what to eat and when to maximize your energy and support mental health' />
+          text={Text.header2}
+          desc={Text.paragraph2} />
         <Box 
           delay='1.2s'
-          text='Spirituality'
-          desc='Become in touch with your beliefs. Syncronize your mind and body' />
+          text={Text.header3}
+          desc={Text.paragraph3} />
         <Box 
           delay='1.3s'
-          text='Another Thing'
-          desc='Four boxes look better than three. Always eat your vegetables' />
+          text={Text.header4}
+          desc={Text.paragraph4} />
     	</div>
     	<button 
         onClick={props.changePage}
