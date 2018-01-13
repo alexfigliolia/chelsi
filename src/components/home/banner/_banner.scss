@@ -14,6 +14,22 @@
   	width: 100%;
   	background: rgba(#000, 0.5);
   }
+  // &>.border {
+  //   display: none;
+  //   position: absolute;
+  //   bottom: 12.5%;
+  //   left: 5%;
+  //   height: 70%;
+  //   width: 90%;
+  //   border-right: 4px solid #CD6EEE;
+  //   border-left: 4px solid #CD6EEE;
+  //   z-index: 2;
+  //   transform: scaleY(0);
+  //   transition-duration: 0.3s;
+  //   @media #{$mq-957} {
+  //     display: initial;
+  //   }
+  // }
   &>.center {
     // padding: 100px 0;
     position: relative;
@@ -23,12 +39,12 @@
       margin-top: 0;
     }
   }
-  &>div {
+  &>.center {
   	@include center;
   	z-index: 2;
   	flex-direction: column;
   	width: 90%;
-  	max-width: 300px;
+  	// max-width: 300px;
   	&>.lettering {
   		@include center;
   		flex-direction: row;
@@ -158,6 +174,7 @@
   // 	}
   // }
   &>.scroll {
+    z-index: 3;
     position: absolute;
     bottom: 25vh;
     left: calc(50% - 35px);
@@ -191,15 +208,18 @@
 }
 
 .banner-enter {
-	&>div>.lettering::after {
+  &>.border {
+    transform: scale(1);
+  }
+	&>.center>.lettering::after {
 		transform: scaleX(1);
 	}
-	&>div>.lettering>h2>div,
-	&>div>.lettering>h2:last-of-type>div {
+	&>.center>.lettering>h2>div,
+	&>.center>.lettering>h2:last-of-type>div {
 		transform: translateX(0px);
   		opacity: 1;
 	}
-	&>div>.lines {
+	&>.center>.lines {
 		transform: scaleX(1);
 	}
 	&>.scroll {
@@ -210,7 +230,7 @@
 }
 
 .banner-fade {
-  &>div {
+  &>.center {
     &>.lines {
       transform: scaleX(0);
       transition-delay: 0s;

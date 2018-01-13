@@ -49,14 +49,14 @@ $mq-h-1400: '(min-height: 1400px)';
 
 @mixin backgroundTop {
 	background: #DA22FF;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to top, #9733EE, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to top, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to top, #C94FEF, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #C94FEF, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @mixin backgroundRight {
 	background: #DA22FF;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #9733EE, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #C94FEF, #DA22FF);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #C94FEF, #DA22FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @mixin backgroundBody {

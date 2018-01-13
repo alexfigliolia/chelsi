@@ -53,6 +53,7 @@ export default class Banner extends PureComponent {
         onMouseEnter={this.mouseEnter}
         onMouseMove={this.mouseMove}
         onMouseLeave={this.mouseLeave}>
+{/*        <div className='border'></div>*/}
     		<div 
           className='center' 
           id='heading'
